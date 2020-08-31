@@ -44,7 +44,7 @@ def order_numbers(phone_numbers)
         telnyx_response = Telnyx::NumberOrder.create(
           phone_numbers: [phone_number])
         telnyx_response.phone_numbers.each do |e|
-          puts "phone_number_id: #{e.id} is #{telnyx_response.status}"
+          puts "Order is #{telnyx_response.status} for phone_number_id: #{e.id}"
         end
       end
     rescue Exception => ex
