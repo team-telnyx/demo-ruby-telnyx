@@ -10,6 +10,8 @@ require 'down'
 if __FILE__ == $0
   TELNYX_API_KEY=ENV.fetch("TELNYX_API_KEY")
   TELNYX_APP_PORT=ENV.fetch("TELNYX_APP_PORT")
+  AWS_REGION = ENV.fetch("AWS_REGION")
+  TELNYX_MMS_S3_BUCKET = ENV.fetch("TELNYX_MMS_S3_BUCKET")
   Telnyx.api_key = TELNYX_API_KEY
   set :port, TELNYX_APP_PORT
 end
@@ -20,11 +22,9 @@ def deserialize_json(json)
 end
 
 def upload_file(file_path)
-  aws_region = ENV.fetch("AWS_REGION")
-  bucket = ENV.fetch("TELNYX_MMS_S3_BUCKET")
-  s3 = Aws::S3::Resource.new(region: aws_region)
+  s3 = Aws::S3::Resource.new(region: AWS_REGION)
   name = File.basename(file_path)
-  obj = s3.bucket(bucket).object(name)
+  obj = s3.bucket(TELNYX_MMS_S3_BUCKET).object(name)
   obj.upload_file(file_path, acl: 'public-read')
   obj.public_url
 end
@@ -49,12 +49,12 @@ post '/messaging/inbound' do
   file_paths = []
   media_urls = []
   if media.any?
-    media.each{ |item|
+    media.each do |item|
       file_path = download_file(item.url)
       file_paths.push(file_path)
       media_url = upload_file(file_path)
       media_urls.push(media_url)
-    }
+    end
   end
 
   begin
@@ -62,7 +62,7 @@ post '/messaging/inbound' do
         from: to_number,
         to: from_number,
         text: "Hello, world!",
-        media_urls: media_urls.any? ? media_urls : [],
+        media_urls: media_urls,
         use_profile_webhooks: false,
         webhook_url: dlr_uri.to_s
     )
