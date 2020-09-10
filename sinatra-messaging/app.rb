@@ -16,6 +16,10 @@ if __FILE__ == $0
   set :port, TELNYX_APP_PORT
 end
 
+get '/' do
+  "Hello World"
+end
+
 def deserialize_json(json)
   object = JSON.parse(json, object_class: OpenStruct)
   object
@@ -36,9 +40,6 @@ def download_file(uri)
   path
 end
 
-get '/' do
-  "Hello World"
-end
 
 post '/messaging/inbound' do
   webhook = deserialize_json(request.body.read)
