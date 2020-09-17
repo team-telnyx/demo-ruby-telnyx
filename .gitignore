@@ -57,3 +57,4 @@ build-iPhoneSimulator/
 
 .env
 .DS_Store
+.idea/
