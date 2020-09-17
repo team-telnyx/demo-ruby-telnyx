@@ -1,0 +1,38 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.2.3)
+    dotenv (2.7.6)
+    ed25519 (1.2.4)
+    faraday (0.17.3)
+      multipart-post (>= 1.2, < 3)
+    multipart-post (2.1.1)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    net-http-persistent (3.1.0)
+      connection_pool (~> 2.2)
+    rack (2.2.3)
+    rack-protection (2.0.8.1)
+      rack
+    ruby2_keywords (0.0.2)
+    sinatra (2.0.8.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.8.1)
+      tilt (~> 2.0)
+    telnyx (2.2.0)
+      ed25519 (~> 1)
+      faraday (~> 0.13, != 0.16.2, != 0.16.1, != 0.16.0)
+      net-http-persistent (~> 3.0)
+    tilt (2.0.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dotenv
+  sinatra
+  telnyx
+
+BUNDLED WITH
+   2.1.4
