@@ -85,15 +85,7 @@ post '/webhook' do
   request.body.rewind
   body = request.body.read # Save the body for verification later
   data = JSON.parse(body)['data']
-  begin
-    # Try to verify, and error bad request if webhook signature is not valid
-    Telnyx::Webhook::Signature.verify(body,
-                                      request.env['HTTP_TELNYX_SIGNATURE_ED25519'],
-                                      request.env['HTTP_TELNYX_TIMESTAMP'])
-  rescue Exception => e
-    puts e
-    halt 400, 'Webhook signature not valid'
-  end
+
   # Handle events
   if data['record_type'] == 'event'
     call = Telnyx::Call.new id: data['payload']['call_control_id'],
