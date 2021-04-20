@@ -40,7 +40,6 @@ The following environmental variables need to be set
 | `TELNYX_API_KEY`    | Your [Telnyx API Key](https://portal.telnyx.com/#/app/api-keys?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link)              |
 | `TELNYX_PUBLIC_KEY` | Your [Telnyx Public Key](https://portal.telnyx.com/#/app/account/public-key?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link) |
 | `TELNYX_CALL_CONTROL_APP_ID` | Your [Telnyx Call Control Application **Id**](https://portal.telnyx.com/#/app/call-control/applications) |
-| `TELNYX_CALL_CONTROL_APP_NAME` | Your [Telnyx Call Control Application **NAME**](https://portal.telnyx.com/#/app/call-control/applications) |
 | `PORT`              | **Defaults to `8000`** The port the app will be served                                                                                                   |
 
 ### .env file
@@ -53,7 +52,6 @@ Make a copy of [`.env.sample`](./.env.sample) and save as `.env` and update the 
 TELNYX_API_KEY=
 TELNYX_PUBLIC_KEY=
 TELNYX_CALL_CONTROL_APP_ID=
-TELNYX_CALL_CONTROL_APP_NAME=
 PORT=8000
 ```
 

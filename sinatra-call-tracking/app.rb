@@ -7,7 +7,6 @@ if __FILE__ == $0
   TELNYX_API_KEY = ENV.fetch("TELNYX_API_KEY")
   TELNYX_APP_PORT = ENV.fetch("PORT")
   TELNYX_CONNECTION_ID = ENV.fetch("TELNYX_CALL_CONTROL_APP_ID")
-  TELNYX_CONNECTION_NAME = ENV.fetch("TELNYX_CALL_CONTROL_APP_NAME")
   Telnyx.api_key = TELNYX_API_KEY
   DATABASE = Hash.new
   set :port, TELNYX_APP_PORT
@@ -81,7 +80,7 @@ namespace '/phone-numbers' do
 
   get '' do
     filter = {
-      'voice.connection_name' => { :contains => TELNYX_CONNECTION_NAME }
+      :connection_id => TELNYX_CONNECTION_ID
     }
     phone_numbers = Telnyx::PhoneNumber.list(filter: filter)
     phone_numbers.data.to_json
