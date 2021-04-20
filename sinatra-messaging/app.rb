@@ -9,7 +9,7 @@ require 'down'
 
 if __FILE__ == $0
   TELNYX_API_KEY=ENV.fetch("TELNYX_API_KEY")
-  TELNYX_APP_PORT=ENV.fetch("TELNYX_APP_PORT")
+  TELNYX_APP_PORT=ENV.fetch("PORT")
   AWS_REGION = ENV.fetch("AWS_REGION")
   TELNYX_MMS_S3_BUCKET = ENV.fetch("TELNYX_MMS_S3_BUCKET")
   Telnyx.api_key = TELNYX_API_KEY

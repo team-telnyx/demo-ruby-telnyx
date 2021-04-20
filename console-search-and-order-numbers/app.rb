@@ -43,6 +43,11 @@ def order_numbers(phone_numbers)
         puts "Ok, ordering #{phone_number[:phone_number]}"
         telnyx_response = Telnyx::NumberOrder.create(
           phone_numbers: [phone_number])
+        puts telnyx_response
+        while telnyx_response.status == 'pending'
+          telnyx_response = Telnyx::NumberOrder.retrieve(telnyx_response.id)
+          sleep(0.25)
+        end
         telnyx_response.phone_numbers.each do |e|
           puts "Order is #{telnyx_response.status} for phone_number_id: #{e.id}"
         end
@@ -54,7 +59,6 @@ def order_numbers(phone_numbers)
     end
   end
 end
-
 
 if __FILE__ == $0
   TELNYX_API_KEY=ENV.fetch("TELNYX_API_KEY")
