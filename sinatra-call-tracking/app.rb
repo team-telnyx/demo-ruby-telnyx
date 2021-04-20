@@ -80,7 +80,7 @@ namespace '/phone-numbers' do
 
   get '' do
     filter = {
-      :connection_id => TELNYX_CONNECTION_ID
+      connection_id: TELNYX_CONNECTION_ID
     }
     phone_numbers = Telnyx::PhoneNumber.list(filter: filter)
     phone_numbers.data.to_json
