@@ -22,14 +22,12 @@ You will need to set up:
   * [Telnyx Outbound Voice Profile](https://portal.telnyx.com/#/app/outbound-profiles?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link)
 * Ability to receive webhooks (with something like [ngrok](https://developers.telnyx.com/docs/v2/development/ngrok?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link))
 * [Ruby & Gem](https://developers.telnyx.com/docs/v2/development/dev-env-setup?lang=ruby&utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link) installed
-* AWS Account setup with proper profiles and groups with IAM for S3. See the [Quickstart](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/welcome.html) for more information.
-* Previously created S3 bucket with public permissions available.
+
 
 ## What you can do
 
-* Send an SMS or MMS and receive a copy of the attachments back to your phone number
-* Upload a file to AWS S3
-* Send those file as an MMS via Telnyx
+* Create a tracking number
+* See the calls to that number
 
 ## Usage
 
