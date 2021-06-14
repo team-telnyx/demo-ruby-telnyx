@@ -1,7 +1,3 @@
-
-- in `app.rb` script, provide list of phone numbers in `list_of_numbers_to_dial_out` array
-
-
 <div align="center">
 
 # Telnyx-Ruby Call Control Bridge Connect
