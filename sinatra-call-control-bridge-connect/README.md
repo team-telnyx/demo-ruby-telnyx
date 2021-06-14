@@ -28,7 +28,7 @@ You will need to set up:
 * Call into a phone number associated with call control application
 * Call control application dials out to a list of phone numbers, with prompt to accept or reject incoming call
 * Call is bridged for first outbound call to accept incoming call
-* All other outbound calls are hung up
+* All other outbound calls are terminated
 
 ## Usage
 
