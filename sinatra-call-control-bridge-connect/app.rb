@@ -5,7 +5,7 @@ require 'dotenv/load'
 Telnyx.api_key = ENV['TELNYX_API_KEY']
 TELNYX_CALL_CONTROL_APP_ID = ENV['TELNYX_CALL_CONTROL_APP_ID']
 
-set :port, ENV['PORT']
+set :port, ENV['TENYX_APP_PORT']
 
 list_of_numbers_to_dial_out = [
   '+15555555555'
@@ -66,21 +66,21 @@ post '/call-control/outbound/:inbound_call_control_id' do
   outbound_call = Telnyx::Call.new(id: outbound_call_control_id)
 
   if !bridged_calls[inbound_call_control_id]
-    if event_type == "call.answered"
+    if event_type == 'call.answered'
       outbound_call.gather_using_speak(
-        payload: "Press 1 to be connected to the client, press any other key to hang up",
+        payload: 'Press 1 to be connected to the client, press any other key to hang up',
         maximum_digits: 1,
-        language: "en-US",
-        voice: "female"
+        language: 'en-US',
+        voice: 'female'
       )
-    elsif event_type == "call.gather.ended"
+    elsif event_type == 'call.gather.ended'
       if body['data']['payload']['digits'] == '1'
         # mark as bridged before actually attempting bridge call to mitigate potential for race conditions
         bridged_calls[inbound_call_control_id] = outbound_call_control_id
 
         # bridge the call
         begin
-          outbound_call.bridge(call_control_id: params['inbound_call_control_id'])
+          outbound_call.bridge(call_control_id: inbound_call_control_id)
         end
 
         # hang up all other outbound calls
