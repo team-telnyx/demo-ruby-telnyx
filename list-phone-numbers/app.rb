@@ -24,11 +24,11 @@ def list_all_numbers()
   end
 end
 
-def list_numbers(page_number, size)
+def list_numbers(page_number, page_size)
   begin
     page = {
       number: page_number,
-      size: size
+      size: page_size
     }
     phone_numbers = Telnyx::PhoneNumber.list(page: page)
   rescue Exception => ex
