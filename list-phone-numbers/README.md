@@ -19,7 +19,7 @@ You will need to set up:
 * [Telnyx Account](https://telnyx.com/sign-up?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link)
 * [Telnyx Phone Number](https://portal.telnyx.com/#/app/numbers/my-numbers?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link) enabled with:
   * [Telnyx Call Control Application](https://portal.telnyx.com/#/app/call-control/applications?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link)
-  * [Telnyx Outbound Voice Profile](https://portal.telnyx.com/#/app/outbound-profiles?utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link)
+  * [Telnyx Messaging Profile](https://portal.telnyx.com/#/app/messaging)
 * [Ruby & Gem](https://developers.telnyx.com/docs/v2/development/dev-env-setup?lang=ruby&utm_source=referral&utm_medium=github_referral&utm_campaign=cross-site-link) installed
 
 ## What you can do
@@ -54,9 +54,8 @@ Run the following commands to get started
 
 ```
 $ git clone https://github.com/team-telnyx/demo-ruby-telnyx.git
+$ cd list-phone-numbers
 ```
 ### Run
 
 Open your IDE and run the application
-
-## Next Steps
