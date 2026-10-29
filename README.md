@@ -28,6 +28,7 @@ You will need to set up:
 | Example                                        | Description                                                                                                         |
 |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|
 | [Sinatra Messaging](sinatra-messaging)         | Example working with inbound MMS & SMS messages, downloading media from inbound MMS, and uploading media to AWS S3. |
+| [WebRTC Login Token](webrtc-login-token)       | Mint WebRTC login tokens for a telephony credential on your own server with `TelephonyCredential#to_jwt`.         |
 
 ### Install
 

@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# TelephonyCredential#to_jwt ships in telnyx-ruby 3.1.0.
+gem "telnyx", "~> 3.1"
+
+gem "dotenv"
+# only used by the optional login check against the WebRTC gateway
+gem "websocket-client-simple", "~> 0.8"
